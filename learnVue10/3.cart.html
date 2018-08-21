@@ -4,6 +4,11 @@
         <meta charset="UTF-8">
         <title>购物车</title>
         <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+        <style>
+            caption{
+                caption-side:top;
+            }
+        </style>
     </head>
     <body>
             <!--栅格化布局  默认12列，（有一些框架可能是24列-->
@@ -27,7 +32,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="(product,index) in products" >
-                                <td><input type="checkbox" v-model="product.isSelected" @change="checkOne"></td>
+                                <td><input type="checkbox" v-model="product.isSelected"></td>
                                 <td><img :src="product.productCover"/>{{product.productName}}</td>
                                 <!--lazy-->
                                 <td><input type="number" v-model.number="product.productCount" min="1"></td>
@@ -39,7 +44,7 @@
                         </tbody>
                         <tr>
                             <!--{{sum}} 数据一变化就会重新调用此函数  算出-->
-                            <td colspan="6"> 总价格：{{sum() | toFixed}}</td>
+                            <td colspan="6"> 总价格：{{sum | toFixed}}</td>
                         </tr>
                     </table>
                 </div>
@@ -49,6 +54,7 @@
         <script src="./node_modules/axios/dist/axios.js"></script>
         <script>
             let vm = new Vue({
+                //
                 el:'#app',
                 //专门用来发送ajax的方法
                 created(){
@@ -56,18 +62,50 @@
                     //Promise  解决回调问题的
                     this.getData()
                 },
-                computed:{
+                computed:{ //放在computed中最后也会放在vm上,不能和methods 与data  重名
+                    checkAll:{
+                        get(){//get 和 set this
+                            // console.log("2");
+                            return this.products.every(item => item.isSelected)
 
+                        },
+                        set(val){
+                             this.products.forEach(item=> item.isSelected = val)
+                            // console.log("1");
+                        }
+                    },
+                    sum() { //sum的结果会被缓存，如果依赖的数据没有变化不会重新执行
+                        // get(){
+                            // console.log("1");
+                            return this.products.reduce((prev,next) => {
+                                if(!next.isSelected){
+                                    return prev
+                                }
+                                return prev + next.productPrice * next.productCount
+                            },0)
+                        // }
+                    }
+                    // sum:{ //sum的结果会被缓存，如果依赖的数据没有变化不会重新执行
+                    //     get(){
+                    //         console.log("1");
+                    //         return this.products.reduce((prev,next) => {
+                    //                 if(!next.isSelected){
+                    //                     return prev
+                    //                 }
+                    //                return prev + next.productPrice * next.productCount
+                    //             },0)
+                    //     }
+                    // }
                 },
                 methods:{
-                    sum(){ //求和函数
-                        return this.products.reduce((prev,next) => {
-                            if(!next.isSelected){
-                                return prev
-                            }
-                           return prev + next.productPrice * next.productCount
-                        },0)
-                    },
+                    // sum(){ //求和函数
+                    //     return this.products.reduce((prev,next) => {
+                    //         if(!next.isSelected){
+                    //             return prev
+                    //         }
+                    //        return prev + next.productPrice * next.productCount
+                    //     },0)
+                    // },
                     checkOne(){
                         this.checkAll = this.products.every(item => item.isSelected)
                     },
@@ -83,14 +121,14 @@
                             //error
                             console.log(err)
                         })
-                    },remove(p){
+                    },
+                    remove(p){
                         //p代表当前点击的这一项
                         this.products = this.products.filter(item => item !== p)
                     }
                 },
                 data:{
-                    products:[],
-                    checkAll:false
+                    products:[]
                 },
                 filters:{
                     toFixed(input,param1){
@@ -100,6 +138,5 @@
                 }
             })
         </script>
-
     </body>
 </html>
