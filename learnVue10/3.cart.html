@@ -26,17 +26,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(product,index) in products">
-                                <td><input type="checkbox" v-model="product.isSelected"></td>
+                            <tr v-for="(product,index) in products" >
+                                <td><input type="checkbox" v-model="product.isSelected" @change="checkOne"></td>
                                 <td><img :src="product.productCover"/>{{product.productName}}</td>
                                 <!--lazy-->
-                                <td><input type="number" v-model.number="product.productCount"></td>
+                                <td><input type="number" v-model.number="product.productCount" min="1"></td>
                                 <td>{{product.productPrice}}</td>
                                 <!--过滤器  元数据不改变的情况下-->
                                 <td>{{product.productCount * product.productPrice | toFixed}}</td>
                                 <td><button class="btn btn-danger" @click="remove(product)">删除</button></td>
                             </tr>
                         </tbody>
+                        <tr>
+                            <!--{{sum}} 数据一变化就会重新调用此函数  算出-->
+                            <td colspan="6"> 总价格：{{sum() | toFixed}}</td>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -52,18 +56,35 @@
                     //Promise  解决回调问题的
                     this.getData()
                 },
+                computed:{
+
+                },
                 methods:{
+                    sum(){ //求和函数
+                        return this.products.reduce((prev,next) => {
+                            if(!next.isSelected){
+                                return prev
+                            }
+                           return prev + next.productPrice * next.productCount
+                        },0)
+                    },
+                    checkOne(){
+                        this.checkAll = this.products.every(item => item.isSelected)
+                    },
                     change(){
-                        alert(this.checkAll)
+                        this.products.forEach(item => item.isSelected = this.checkAll)
                     },
                     getData(){
                         let that = this
                         axios.get('./carts.json').then(function (res) {
                             that.products = res.data
-                        },function (err) { //error
+                            that.checkOne()
+                        },function (err) {
+                            //error
                             console.log(err)
                         })
-                    },remove(p){ //p代表当前点击的这一项
+                    },remove(p){
+                        //p代表当前点击的这一项
                         this.products = this.products.filter(item => item !== p)
                     }
                 },
