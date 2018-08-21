@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="./node_modules/animate.css/animate.css">
+        <style>
+            div>div {
+                width: 100px;
+                height: 100px;
+                background: red;
+            }
+            .v-enter{
+                opacity: 0;
+            }
+            .v-enter-active{
+                transition: 1s linear;
+            }
+            .v-leave-active{
+                opacity: 0;
+                transition: 1s linear;
+            }
+
+
+            .test-enter{
+                opacity: 0;
+            }
+            .test-enter-active{
+                transition: 1s linear;
+                background: blue;
+            }
+            .test-leave-active{
+                opacity: 1;
+            }
+            .test-leave-active{
+                opacity: 0;
+                transition: 1s linear;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="app">
+            <button @click="flag=!flag" >切换</button>
+            <!--vue 自定义的标签-->
+            <input type="text" v-model="query">
+            <transition-group enter-active-class="animated bounceInUp" leave-active-class="animated fadeOutLeftBig">
+                <div v-show="flag" key="1">我爱你</div>
+                <ul key="2">
+                    <div v-for="(a,index) in newArr" :key="index">{{a}}</div>
+                </ul>
+            </transition-group>
+            <transition name="test">
+                <div v-show="flag">我爱你</div>
+            </transition>
+        </div>
+        <script src="./node_modules/vue/dist/vue.js"></script>
+        <script>
+            let vm = new Vue({
+                el:'#app',
+                computed:{
+                  newArr(){
+                      return  this.arr.filter(item => item == this.query)
+                  }
+                },
+                methods:{
+                },
+                data:{
+                    query:'',
+                    flag:true,
+                    arr:[1,2,3,4,5]
+                }
+            })
+        </script>
+    </body>
+</html>
