@@ -46,9 +46,9 @@
             <input type="text" v-model="query">
             <transition-group enter-active-class="animated bounceInUp" leave-active-class="animated fadeOutLeftBig">
                 <div v-show="flag" key="1">我爱你</div>
-                <ul key="2">
+                <!--<ul key="2">-->
                     <div v-for="(a,index) in newArr" :key="index">{{a}}</div>
-                </ul>
+                <!--</ul>-->
             </transition-group>
             <transition name="test">
                 <div v-show="flag">我爱你</div>
