@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div id="app">
+            <div @click="parent">parent
+                <div @click="child">child
+                    <div @click="grandson">grandson</div>
+                </div>
+            </div>
+        </div>
+        <script src="./node_modules/vue/dist/vue.js"></script>
+        <script>
+            let vm = new Vue({
+                el:'#app',
+                methods:{
+                    parent(){
+                        alert('parent')
+                    },
+                    child(){
+                        alert('child')
+                    },
+                    grandson(){
+                        alert('grandson')
+                    }
+                },
+                data:{
+
+                }
+            })
+        </script>
+    </body>
+</html>

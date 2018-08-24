@@ -158,5 +158,24 @@ v-if 和 v-show 的区别
 动画的使用
  animate.css  动画的库
 
+```
+
+### Vue 第五天的学习
+
+```bash
+- v-model (如果checkbox,select多选是数组，提供一个value属性)（radio checkbox分组靠的是v-model）,checked selected 不存在
+- 修饰符 .number .lazy
+- 按键修饰符 .enter .ctrl .keyCode
+- 事件
+    ```
+        stopPropagation (阻止冒泡) cancelBubble = true
+        xxx.addEventListener('click',fn,true)
+        preventDefault ,returnValue = false
+
+    ```
+- jquery Once flag
+- e.srcElement && e.target 判断事件源绑定事件
+
+
 
 ```
