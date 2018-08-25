@@ -167,11 +167,35 @@ v-if 和 v-show 的区别
 - 修饰符 .number .lazy
 - 按键修饰符 .enter .ctrl .keyCode
 - 事件
+    - @事件.shop
     ```
         stopPropagation (阻止冒泡) cancelBubble = true
-        xxx.addEventListener('click',fn,true)
-        preventDefault ,returnValue = false
+        stopPropagation 阻止事件传播
 
+    ```
+    - @事件.capture
+    ```
+        xxx.addEventListener('click',fn,true)
+
+    ```
+    - @事件.prevent
+    ```
+        xxx.addEventListener('click',fn,true)
+
+    ```
+    - jquery Once flag   @事件.once
+    ```
+        on('click')     off('click')
+
+    ```
+    - @事件.self
+    ```
+        e.srcElement && e.target 判断事件源绑定事件
+    ```
+
+    ```
+        stopPropagation (阻止冒泡) cancelBubble = true
+        preventDefault ,returnValue = false
     ```
 - jquery Once flag
 - e.srcElement && e.target 判断事件源绑定事件

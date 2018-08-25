@@ -6,11 +6,12 @@
     </head>
     <body>
         <div id="app">
-            <div @click="parent">parent
+            <div @click.capture.stop="parent">parent
                 <div @click="child">child
-                    <div @click="grandson">grandson</div>
+                    <div @click.shop="grandson">grandson</div>
                 </div>
             </div>
+            <a href="http://www.baidu.com" @click="parent"></a>
         </div>
         <script src="./node_modules/vue/dist/vue.js"></script>
         <script>
