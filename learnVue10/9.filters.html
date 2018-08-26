@@ -5,20 +5,47 @@
         <title>Title</title>
     </head>
     <body>
-        <div id="app">
+        <div id="app1"> {{'hello' | myx}}
+        </div>
+        <div id="app2"> {{'hello' | myx}}
         </div>
         <script src="./node_modules/vue/dist/vue.js"></script>
         <script>
-            Vue.filter('my',(data) =>{
-                return 'jw' + data
-            })
+
+            Vue.filter('myx',(data) =>{
+                return 'jwx' + data
+            }
+
             let vm = new Vue({
-                el:'#app',
+                el:'#app1',
                 methods:{
+
                 },
                 data:{
+
+                },
+                filters:{
+                    my(data){
+                        return 'jw1' + data
+                    }
                 }
             })
+
+            let vm2 = new Vue({
+                el:'#app2',
+                methods:{
+
+                },
+                data:{
+
+                },
+                filters:{
+                    my(data){
+                        return 'jw2' + data
+                    }
+                }
+            })
+
         </script>
     </body>
 </html>
