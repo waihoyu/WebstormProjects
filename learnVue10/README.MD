@@ -203,3 +203,27 @@ v-if 和 v-show 的区别
 
 
 ```
+## filters 实例上可以用 (共用filter)
+
+```
+{{'123' |  my(1,2,3)}}
+
+filters:{
+  my(){
+
+       }
+}
+}
+
+Vue.filter('my',(data) =>{
+return 'jw' + data
+})
+
+
+
+```
+##  computed 计算属性  不是方法
+- 方法不会缓存，computed 会根据依赖（归vue管理的数据，可以响应式变化的）的属性进行缓存
+- 两部分组成有get和set(不能只写set)  一般情况下 ，通过js 赋值影响其他人或者表单元素的时候会调用set方法
+-
+

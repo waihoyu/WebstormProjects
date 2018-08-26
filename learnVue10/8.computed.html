@@ -6,6 +6,9 @@
     </head>
     <body>
         <div id="app">
+            <input type="text" v-model="a">{{msg}}
+            <!--根据输入框中的内容，算出一个错误的信息-->
+            <!--当给a赋值的时候影响了 错误信息的改变  错误的-->
         </div>
         <script src="./node_modules/vue/dist/vue.js"></script>
         <script>
@@ -13,7 +16,25 @@
                 el:'#app',
                 methods:{
                 },
+                computed:{
+                  // a:{//如果写了set方法，并且val给了别人，那当前的a
+                  //     // set(){
+                  //     //
+                  //     // },
+                  //
+                  // },
+                    msg(){
+                        if (this.a.length < 3) {
+                            return '少了'
+                        }
+                        if(this.a.length > 6){
+                            return '多了'
+                        }
+                        return ''
+                    }
+                },
                 data:{
+                    a:""
                 }
             })
         </script>
