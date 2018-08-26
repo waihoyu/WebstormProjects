@@ -16,12 +16,14 @@
                 computed:{
                   checkAll:{
                       get(){
+                          console.log("getting")
                         return this.products.every(item =>
                             item.isSelected
                         )
                       },
-                      set(val){
-                        this.products.forEach(item =>
+                      set(val){ //val  是给checkAll 赋予值传递过来的
+                          console.log("setting");
+                          this.products.forEach(item =>
                             item.isSelected = val
                       )
                       }
@@ -30,6 +32,7 @@
                 methods:{
                 },
                 data:{
+                    checkAll1:false,
                     products:[{isSelected: true},{isSelected: true}]
                 }
             })

@@ -226,3 +226,41 @@ return 'jw' + data
 - 两部分组成有get和set(不能只写set)  一般情况下 ，通过js 赋值影响其他人或者表单元素的时候会调用set方法
 -
 
+```bash
+
+<script>
+    let vm = new Vue({
+        el:'#app',
+        watch:{ //只有值变化的时候才会触发  支持异步了
+            a(newVal,oldVal){//watch  的属性名字 要和观察的人的名字一致
+                console.log(newVal  + ":" + oldVal)
+                setTimeout(()=>{
+                    if(newVal.length<3){
+                        return this.msg = '太少'
+                    }
+                    if (newVal.length > 6){
+                        return this.msg = '太多'
+                    }
+                    this.msg = ''
+                },500)
+            }
+        },
+        computed:{ //computed 默认调用get方法，必须要有return
+            // msg:{//如果写了set方法，并且val给了别人，那当前的a就不会被赋值结果了
+            //     //不支持异步
+            //     get(){
+            //         return this.a
+            //     }
+            // }
+        },
+        methods:{
+
+        },
+        data:{
+            a:'',
+            msg: ''
+        }
+    })
+</script>
+
+```
