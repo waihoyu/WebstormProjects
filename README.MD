@@ -128,3 +128,178 @@ Object.defineProperty
 
 
 ```
+
+### Vue 第三天的学习
+
+```bash
+v-cloak
+[v-cloak]{display: none}
+
+v-once 绑定一次，数据在变化不会导致视图刷新，写在不想刷新的标签上
+
+v-html 将html 字符串转化成html
+
+v-for 循环（数组，对象，字符串，数字）
+
+绑定给dom元素，函数需要定义在methods中，不能喝data里的内容重名，this指向的是实例，不能使用箭头函数，事件源对象如果不写括号，可以自动传入，否则只能手动传入 $event
+```
+
+
+### Vue 第四天的学习
+
+```bash
+<!--常见的样式，  基本样式  + 增强样式-->
+<!--如果频繁的切换dom使用v-show,当数据一开始就确定下来使用v-if更好-->
+
+v-if 和 v-show 的区别
+
+只有dom从 显示到隐藏 或者隐藏到显示，才能使用vue的动画
+
+动画的使用
+ animate.css  动画的库
+
+```
+
+### Vue 第五天的学习
+
+```bash
+- v-model (如果checkbox,select多选是数组，提供一个value属性)（radio checkbox分组靠的是v-model）,checked selected 不存在
+- 修饰符 .number .lazy
+- 按键修饰符 .enter .ctrl .keyCode
+- 事件
+    - @事件.shop
+    ```
+        stopPropagation (阻止冒泡) cancelBubble = true
+        stopPropagation 阻止事件传播
+
+    ```
+    - @事件.capture
+    ```
+        xxx.addEventListener('click',fn,true)
+
+    ```
+    - @事件.prevent
+    ```
+        xxx.addEventListener('click',fn,true)
+
+    ```
+    - jquery Once flag   @事件.once
+    ```
+        on('click')     off('click')
+
+    ```
+    - @事件.self
+    ```
+        e.srcElement && e.target 判断事件源绑定事件
+    ```
+
+    ```
+        stopPropagation (阻止冒泡) cancelBubble = true
+        preventDefault ,returnValue = false
+    ```
+- jquery Once flag
+- e.srcElement && e.target 判断事件源绑定事件
+
+
+
+```
+## filters 实例上可以用 (共用filter)
+
+```
+{{'123' |  my(1,2,3)}}
+
+filters:{
+  my(){
+
+       }
+}
+}
+
+Vue.filter('my',(data) =>{
+return 'jw' + data
+})
+
+
+```
+##  computed 计算属性  不是方法
+- 方法不会缓存，computed 会根据依赖（归vue管理的数据，可以响应式变化的）的属性进行缓存
+- 两部分组成有get和set(不能只写set)  一般情况下 ，通过js 赋值影响其他人或者表单元素的时候会调用set方法
+-
+
+```bash
+
+<script>
+    let vm = new Vue({
+        el:'#app',
+        watch:{ //只有值变化的时候才会触发  支持异步了
+            a(newVal,oldVal){//watch  的属性名字 要和观察的人的名字一致
+                console.log(newVal  + ":" + oldVal)
+                setTimeout(()=>{
+                    if(newVal.length<3){
+                        return this.msg = '太少'
+                    }
+                    if (newVal.length > 6){
+                        return this.msg = '太多'
+                    }
+                    this.msg = ''
+                },500)
+            }
+        },
+        computed:{ //computed 默认调用get方法，必须要有return
+            // msg:{//如果写了set方法，并且val给了别人，那当前的a就不会被赋值结果了
+            //     //不支持异步
+            //     get(){
+            //         return this.a
+            //     }
+            // }
+        },
+        methods:{
+
+        },
+        data:{
+            a:'',
+            msg: ''
+        }
+    })
+</script>
+
+```
+
+```bash
+
+template 标签  只能在v-if 上使用
+
+在默认情况下，在切换dom时相同的结构会被服用，如果不需要复用，需要加key
+
+v-if
+
+v-show
+
+v-bind   简写是 冒号
+
+
+动态绑定 “属性”  class 绑定的样式 和 class 绑定的不冲突 :class = "{z:flag}"
+
+:class=[class1, class2]
+:style=""
+
+```
+
+## 实现单页面开发的方式
+
+```bash
+
+路由  vue-router
+
+- 通过hash记录跳转的路径（可以产生历史管理）
+- 浏览器自带的历史管理的方法 history  ( history.push() )可能会导致404错误
+
+history.pushState('','','/d')
+
+> 开发时使用hash方式，上线的话，我们使用history的方式
+
+
+
+
+
+```
