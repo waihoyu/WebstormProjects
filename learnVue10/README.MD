@@ -280,13 +280,25 @@ v-bind   简写是 冒号
 
 动态绑定 “属性”  class 绑定的样式 和 class 绑定的不冲突 :class = "{z:flag}"
 
-:class=[class1,class2]
+:class=[class1, class2]
 :style=""
 
 ```
 
+## 实现单页面开发的方式
 
 ```bash
+
+路由  vue-router
+
+- 通过hash记录跳转的路径（可以产生历史管理）
+- 浏览器自带的历史管理的方法 history  ( history.push() )可能会导致404错误
+
+history.pushState('','','/d')
+
+> 开发时使用hash方式，上线的话，我们使用history的方式
+
+
 
 
 
