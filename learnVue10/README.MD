@@ -264,3 +264,30 @@ return 'jw' + data
 </script>
 
 ```
+
+```bash
+
+template 标签  只能在v-if 上使用
+
+在默认情况下，在切换dom时相同的结构会被服用，如果不需要复用，需要加key
+
+v-if
+
+v-show
+
+v-bind   简写是 冒号
+
+
+动态绑定 “属性”  class 绑定的样式 和 class 绑定的不冲突 :class = "{z:flag}"
+
+:class=[class1,class2]
+:style=""
+
+```
+
+
+```bash
+
+
+
+```

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>学习</title>
+        <style>
+            .x{
+                background: blue;
+            }
+            .y{
+                font-style: 30px;
+            }
+            .z{
+                color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div class="x y" :class="flag?'z':''"> 我很帅</div>
+        </div>
+        <script src="./node_modules/vue/dist/vue.js"></script>
+        <script>
+            //class = "a b c "  style="background color"
+            let vm = new Vue({
+                el:'#app',
+                computed:{
+
+                },
+                filters:{
+
+                },
+                watch:{
+
+                },
+                methods:{
+
+                },
+                data:{
+                    flag:true,
+
+                }
+            })
+        </script>
+    </body>
+</html>
