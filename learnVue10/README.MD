@@ -299,7 +299,4 @@ history.pushState('','','/d')
 > 开发时使用hash方式，上线的话，我们使用history的方式
 
 
-
-
-
 ```
