@@ -1,6 +1,7 @@
 
 ## 事前准备
 
+https://v3.bootcss.com/components/#nav-pills
 
 ## 自学笔记
 ### Vue 第一天的学习
