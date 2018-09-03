@@ -304,3 +304,19 @@ history.pushState('','','/d')
 
 
 ```
+## 实指令是用来操作DOM的
+
+```bash
+实指令是用来操作DOM的
+
+directives:{
+focus(el,bindings){
+if (bindings.value){
+el.focus()
+}
+}
+}
+
+watch 深度监控
+
+```
