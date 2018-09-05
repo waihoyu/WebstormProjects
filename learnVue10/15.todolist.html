@@ -30,7 +30,7 @@
                     </div>
                     <div class="panel-body">
                         <ul class="list-group">
-                            <li class="list-group-item" v-for="(todo,index) in todos" @dblclick="remember(todo)">
+                            <li class="list-group-item" v-for="(todo,index) in filterTodos" @dblclick="remember(todo)">
                                 <!--如果isSelected 为true 则 del 生效-->
                                 <span :class="{del:todo.isSelected}"  v-show="curr != todo">
                                     <input type="checkbox" v-model="todo.isSelected">{{todo.title}}
@@ -43,9 +43,9 @@
                     </div>
                     <div class="panel-footer">
                         <ul class="nav nav-pills">
-                            <li role="presentation" class="active"><a href="#">全部任务</a></li>
-                            <li role="presentation"><a href="#">已完成</a></li>
-                            <li role="presentation"><a href="#">未完成</a></li>
+                            <li role="presentation" :class="{active:hash === 'all'}"><a href="#/all">全部任务</a></li>
+                            <li role="presentation" :class="{active:hash === 'finish'}"><a href="#/finish">已完成</a></li>
+                            <li role="presentation" :class="{active:hash === 'unfinish'}"><a href="#/unfinish">未完成</a></li>
                         </ul>
                     </div>
                 </div>

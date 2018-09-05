@@ -12,12 +12,24 @@ let vm = new Vue({
             }
         ],
         title: "",
-        curr: ''
-
+        curr: '',
+        hash: ''
     },
     computed: {
         count(){
             return this.todos.filter(item=>!item.isSelected).length
+        },
+        filterTodos(){
+            if (this.hash === 'all'){
+                return this.todos
+            }
+            if (this.hash === 'finish'){
+                return this.todos.filter(item=> item.isSelected)
+            }
+            if (this.hash === 'unfinish'){
+                return this.todos.filter(item=> !item.isSelected)
+            }
+            return this.todos
         }
     },
     filters: {
@@ -27,6 +39,12 @@ let vm = new Vue({
         if (JSON.parse(localStorage.getItem('data'))) {
             this.todos = JSON.parse(localStorage.getItem('data'))
         }
+        //监控hash值的变化     如果页面已经有hash，重新刷新页面也要获取hash值
+        this.hash = window.location.hash.slice(2) || 'all'
+        window.addEventListener('hashchange',()=>{
+            this.hash = window.location.hash.slice(2) || 'all'
+        },false)
+
     },
     watch: {
         todos: {

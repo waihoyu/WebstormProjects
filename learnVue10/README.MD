@@ -320,3 +320,24 @@ el.focus()
 watch 深度监控
 
 ```
+
+```bash
+hashchange
+
+
+//监控hash值的变化
+window.addEventListener('hashchange',()=>{
+console.log(window.location);
+},false)
+
+
+
+```
+
+钩子函数
+```bash
+钩子函数声明周期
+
+1.liftcycle
+
+```
