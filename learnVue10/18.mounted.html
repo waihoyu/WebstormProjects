@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div id="app">
+            <p href="myp">{{msg}}</p>
+            <div v-for="a in arr" ref="mydiv">{{a}}</div>
+        </div>
+        <script src="./node_modules/vue/dist/vue.js"></script>
+        <script>
+            let vm = new Vue({
+                el:'#app',
+                beforeCreate(){
+
+                },
+                created(){
+
+                },
+                beforeMount(){
+
+                },
+                mounted(){
+                    console.log(this.$refs.mydiv)
+                },
+                beforeUpdate(){
+
+                },
+                updated(){
+
+                },
+                beforeDestroy(){
+
+                },
+                destroyed(){
+
+                },
+                //template:'<div></div>',
+                computed:{
+
+                },
+                filters:{
+
+                },
+                watch:{
+
+                },
+                methods:{
+
+                },
+                data:{
+                    msg:'hello',
+                    arr:[1,2,3,4]
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+<!--
+this.$data vm上的数据
+
+this.$watch 监控
+
+this.$el 当前el元素
+
+this.set 后加的属性实现响应变化
+
+this.$options vm上的所有属性
+
+this.$refs
+
+this.$nextTick  //异步方法
+
+
+-->

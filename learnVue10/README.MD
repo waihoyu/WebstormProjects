@@ -341,3 +341,26 @@ console.log(window.location);
 1.liftcycle
 
 ```
+
+```
+
+REF
+```bash
+
+this.$data vm上的数据
+
+this.$watch 监控
+
+this.$el 当前el元素
+
+this.set 后加的属性实现响应变化
+
+this.$options vm上的所有属性
+
+this.$refs
+
+this.$nextTick   //异步方法
+
+
+
+```
