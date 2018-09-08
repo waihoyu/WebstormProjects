@@ -6,8 +6,10 @@
     </head>
     <body>
         <div id="app">
-            <p href="myp">{{msg}}</p>
-            <div v-for="a in arr" ref="mydiv">{{a}}</div>
+            <p ref="myp">{{msg}}</p>
+            <div ref="wrap">
+                <div v-for="a in arr" ref="mydiv">{{a}}</div>
+            </div>
         </div>
         <script src="./node_modules/vue/dist/vue.js"></script>
         <script>
@@ -23,7 +25,12 @@
 
                 },
                 mounted(){
+                    //如果dom元素不是通过v-for循环出来的，只能获取到一个，通过v-for循环出来的可以获取多个
                     console.log(this.$refs.mydiv)
+                    this.arr = [1, 2, 3, 4, 5]   // dom  渲染是异步的
+                    this.$nextTick(()=>{//如果数据变化后，想获取真实的dom中的内容，需要等待页面渲染完毕后再去获取。所有dom操作，最好放到nextTick里面
+                        console.log(this.$refs.wrap.children.length);
+                    })
                 },
                 beforeUpdate(){
 

@@ -353,14 +353,12 @@ this.$watch 监控
 
 this.$el 当前el元素
 
-this.set 后加的属性实现响应变化
+this.$set 后加的属性实现响应变化
 
 this.$options vm上的所有属性
 
-this.$refs
+this.$nextTick   //异步方法  等待渲染dom完成后 来获取vm
 
-this.$nextTick   //异步方法
-
-
+this.$refs   所有ref的集合
 
 ```
