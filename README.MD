@@ -1,4 +1,8 @@
 
+## 事前准备
+
+https://v3.bootcss.com/components/#nav-pills
+
 ## 自学笔记
 ### Vue 第一天的学习
 ```bash
@@ -156,7 +160,7 @@ v-if 和 v-show 的区别
 只有dom从 显示到隐藏 或者隐藏到显示，才能使用vue的动画
 
 动画的使用
- animate.css  动画的库
+animate.css  动画的库
 
 ```
 
@@ -167,36 +171,36 @@ v-if 和 v-show 的区别
 - 修饰符 .number .lazy
 - 按键修饰符 .enter .ctrl .keyCode
 - 事件
-    - @事件.shop
-    ```
-        stopPropagation (阻止冒泡) cancelBubble = true
-        stopPropagation 阻止事件传播
+- @事件.shop
+```
+stopPropagation (阻止冒泡) cancelBubble = true
+stopPropagation 阻止事件传播
 
-    ```
-    - @事件.capture
-    ```
-        xxx.addEventListener('click',fn,true)
+```
+- @事件.capture
+```
+xxx.addEventListener('click',fn,true)
 
-    ```
-    - @事件.prevent
-    ```
-        xxx.addEventListener('click',fn,true)
+```
+- @事件.prevent
+```
+xxx.addEventListener('click',fn,true)
 
-    ```
-    - jquery Once flag   @事件.once
-    ```
-        on('click')     off('click')
+```
+- jquery Once flag   @事件.once
+```
+on('click')     off('click')
 
-    ```
-    - @事件.self
-    ```
-        e.srcElement && e.target 判断事件源绑定事件
-    ```
+```
+- @事件.self
+```
+e.srcElement && e.target 判断事件源绑定事件
+```
 
-    ```
-        stopPropagation (阻止冒泡) cancelBubble = true
-        preventDefault ,returnValue = false
-    ```
+```
+stopPropagation (阻止冒泡) cancelBubble = true
+preventDefault ,returnValue = false
+```
 - jquery Once flag
 - e.srcElement && e.target 判断事件源绑定事件
 
@@ -209,9 +213,9 @@ v-if 和 v-show 的区别
 {{'123' |  my(1,2,3)}}
 
 filters:{
-  my(){
+my(){
 
-       }
+}
 }
 }
 
@@ -298,6 +302,88 @@ history.pushState('','','/d')
 
 > 开发时使用hash方式，上线的话，我们使用history的方式
 
+
+```
+## 实指令是用来操作DOM的
+
+```bash
+实指令是用来操作DOM的
+
+directives:{
+focus(el,bindings){
+if (bindings.value){
+el.focus()
+}
+}
+}
+
+watch 深度监控
+
+```
+
+```bash
+hashchange
+
+
+//监控hash值的变化
+window.addEventListener('hashchange',()=>{
+console.log(window.location);
+},false)
+
+
+
+```
+
+钩子函数
+```bash
+钩子函数声明周期
+
+1.liftcycle
+
+```
+
+```
+
+REF
+```bash
+
+this.$data vm上的数据
+
+this.$watch 监控
+
+this.$el 当前el元素
+
+this.$set 后加的属性实现响应变化
+
+this.$options vm上的所有属性
+
+this.$nextTick   //异步方法  等待渲染dom完成后 来获取vm
+
+this.$refs   所有ref的集合
+
+```
+
+
+component 组件化
+```bash
+分类：页面级别组件
+1.一个页面是一个组件
+2.将可复用的部分抽离出来，  叫基础组件
+3.
+
+优点：
+提高开发效率
+方面重复使用
+便于协同开发
+更容易被管理和维护
+
+一个自定义标签 vue就会把他看成一个组件，不包含在：div  p span  a  header section
+vue可以给这些标签赋予一定的意义
+
+
+```
+component 局部组件化
+```bash
 
 
 
