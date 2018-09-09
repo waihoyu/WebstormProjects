@@ -382,3 +382,10 @@ component 组件化
 
 
 ```
+component 局部组件化
+```bash
+
+
+
+
+```
