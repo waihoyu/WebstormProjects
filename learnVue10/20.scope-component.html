@@ -6,9 +6,12 @@
     </head>
     <body>
         <div id="app">
+
         </div>
         <script src="./node_modules/vue/dist/vue.js"></script>
         <script>
+            //局部组件  使用的三部曲  1.创建这个组件  2. 注册这个组件    3.引用这个组件
+            let handsome = {template:'<div>我很英俊</div>'}
             let vm = new Vue({
                 el:'#app',
                 beforeCreate(){
@@ -50,7 +53,10 @@
                 },
                 data:{
 
-                }
+                },
+                components:{
+                    handsome:handsome
+                 }
             })
         </script>
     </body>
