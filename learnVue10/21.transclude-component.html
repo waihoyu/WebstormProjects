@@ -6,9 +6,25 @@
     </head>
     <body>
         <div id="app">
+            <div>parent
+                <div>son
+                    <div>
+                        grandson
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="./node_modules/vue/dist/vue.js"></script>
         <script>
+            let parent = {
+                template:'<div>parent</div>'
+            }
+            let son = {
+                template:'<div>son</div>'
+            }
+            let grandson = {
+                template:'<div>grandson</div>'
+            }
             let vm = new Vue({
                 el:'#app',
                 computed:{

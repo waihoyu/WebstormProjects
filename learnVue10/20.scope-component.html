@@ -5,13 +5,36 @@
         <title>Title</title>
     </head>
     <body>
-        <div id="app">
 
+        <div id="app">
+            <component_1></component_1>
+            <component_2></component_2>
         </div>
+
         <script src="./node_modules/vue/dist/vue.js"></script>
         <script>
-            //局部组件  使用的三部曲  1.创建这个组件  2. 注册这个组件    3.引用这个组件
-            let handsome = {template:'<div>我很英俊</div>'}
+            //局部组件  使用的三部曲  1.创建这个组件  2. 注册这个组件    3.使用这个组件
+            let  obj = {school:'Tsinghua University'}
+
+            let component_1 = {
+                template:`<div @click="fn"> 组件1 {{school}}</div>`,
+                data(){
+                   return obj
+                },
+                methods:{
+                    fn(){
+                        this.school = 'Peking University'
+                    }
+                }
+            }
+
+            let component_2 = {
+                template:'<div> 组件2 {{school}}</div>',
+                data(){
+                    return obj
+                }
+            }
+
             let vm = new Vue({
                 el:'#app',
                 beforeCreate(){
@@ -52,10 +75,11 @@
 
                 },
                 data:{
-
+                    a:1
                 },
                 components:{
-                    handsome:handsome
+                    component_1:component_1,
+                    component_2
                  }
             })
         </script>
