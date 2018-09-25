@@ -5,7 +5,11 @@
         <title>Title</title>
     </head>
     <body>
+    <!--父亲绑定一些事件，儿子触发这个事件， 将参数传递过去  单向数据流， 父亲数据刷新 儿子就刷新-->
+    <!--触发自己的自定义事件，让父亲的方法执行-->
         <div id="app">
+            父亲：{{money}}
+            <child :m="money" @child-msg="things"></child>
         </div>
         <script src="./node_modules/vue/dist/vue.js"></script>
         <script>
@@ -46,10 +50,24 @@
 
                 },
                 methods:{
-
+                    things(val){ //on('xxx',things)
+                        alert(val)
+                        this.money = val
+                    }
                 },
                 data:{
-
+                    money: 400
+                },
+                components:{
+                    child:{
+                        props:['m'],
+                        template:'<div>儿子:{{m}} <button @click="getMoney()">多要点钱</button></div>',
+                        methods: {
+                            getMoney(){
+                                this.$emit('child-msg','800')
+                            }
+                        }
+                    }
                 }
             })
         </script>
