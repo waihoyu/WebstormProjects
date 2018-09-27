@@ -29,18 +29,30 @@
     </head>
     <body>
         <div id="app">
-            <button></button>
-            <!--<dialog :show="true"></dialog>-->
+            <button>11</button>
+            <modual :show="true"></modual>
+        </div>
+
+        <template id="dialog">
             <div class="mask">
                 <div class="dialog">
                     <button>关闭</button>
                 </div>
             </div>
-        </div>
+        </template>
+
         <script src="./node_modules/vue/dist/vue.js"></script>
         <script>
+
+            let modual = {
+                props:['show'],
+                template:'#dialog'
+            };
             let vm = new Vue({
                 el:'#app',
+                components:{
+                     modual
+                },
                 beforeCreate(){
 
                 },
