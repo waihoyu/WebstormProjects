@@ -7,6 +7,7 @@
 *.iml
 out
 node_modules
+
 gen### Node template
 # Logs
 logs
@@ -81,3 +82,6 @@ typings/
 
 # Serverless directories
 .serverless
+/learnVue9/node_modules/
+!/learnVue9/node_modules/
+/learnVue9/
