@@ -160,7 +160,7 @@ v-if 和 v-show 的区别
 只有dom从 显示到隐藏 或者隐藏到显示，才能使用vue的动画
 
 动画的使用
-animate.css  动画的库
+ animate.css  动画的库
 
 ```
 
@@ -171,36 +171,36 @@ animate.css  动画的库
 - 修饰符 .number .lazy
 - 按键修饰符 .enter .ctrl .keyCode
 - 事件
-- @事件.shop
-```
-stopPropagation (阻止冒泡) cancelBubble = true
-stopPropagation 阻止事件传播
+    - @事件.shop
+    ```
+        stopPropagation (阻止冒泡) cancelBubble = true
+        stopPropagation 阻止事件传播
 
-```
-- @事件.capture
-```
-xxx.addEventListener('click',fn,true)
+    ```
+    - @事件.capture
+    ```
+        xxx.addEventListener('click',fn,true)
 
-```
-- @事件.prevent
-```
-xxx.addEventListener('click',fn,true)
+    ```
+    - @事件.prevent
+    ```
+        xxx.addEventListener('click',fn,true)
 
-```
-- jquery Once flag   @事件.once
-```
-on('click')     off('click')
+    ```
+    - jquery Once flag   @事件.once
+    ```
+        on('click')     off('click')
 
-```
-- @事件.self
-```
-e.srcElement && e.target 判断事件源绑定事件
-```
+    ```
+    - @事件.self
+    ```
+        e.srcElement && e.target 判断事件源绑定事件
+    ```
 
-```
-stopPropagation (阻止冒泡) cancelBubble = true
-preventDefault ,returnValue = false
-```
+    ```
+        stopPropagation (阻止冒泡) cancelBubble = true
+        preventDefault ,returnValue = false
+    ```
 - jquery Once flag
 - e.srcElement && e.target 判断事件源绑定事件
 
@@ -213,9 +213,9 @@ preventDefault ,returnValue = false
 {{'123' |  my(1,2,3)}}
 
 filters:{
-my(){
+  my(){
 
-}
+       }
 }
 }
 
@@ -366,24 +366,24 @@ this.$refs   所有ref的集合
 
 component 组件化
 ```bash
-分类：页面级别组件
-1.一个页面是一个组件
-2.将可复用的部分抽离出来，  叫基础组件
-3.
+ 分类：页面级别组件
+    1.一个页面是一个组件
+    2.将可复用的部分抽离出来，  叫基础组件
+    3.
 
-优点：
-提高开发效率
-方面重复使用
-便于协同开发
-更容易被管理和维护
+    优点：
+    提高开发效率
+    方面重复使用
+    便于协同开发
+    更容易被管理和维护
 
-一个自定义标签 vue就会把他看成一个组件，不包含在：div  p span  a  header section
-vue可以给这些标签赋予一定的意义
+    一个自定义标签 vue就会把他看成一个组件，不包含在：div  p span  a  header section
+    vue可以给这些标签赋予一定的意义
 
 
 ```
 component
-```bash
+ ```bash
 //局部组件  使用的三部曲  1.创建这个组件  2. 注册这个组件    3.使用这个组件
 
 //组件是相互独立的  不能直接跨作用域，实例也是一个组件，组件中拥有声明周期函数
