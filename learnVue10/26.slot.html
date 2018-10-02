@@ -8,16 +8,23 @@
         <div id="app">
             <modal><h1>1</h1></modal>
             <modal><h1>2</h1></modal>
+            <modal></modal>
+            <modal><p slot="content" @click="fn">确认删除？</p></modal>
         </div>
     <template id="modal">
         <div>
-            <slot></slot>4
+            <slot name="default">默认标题default</slot>
+            <slot name="title">默认标题</slot>
+            <slot name="content">默认内容</slot>
         </div>
     </template>
         <script src="./node_modules/vue/dist/vue.js"></script>
         <script>
             let modal = {
-                template:'#modal'
+                template:'#modal',
+                methods: {
+
+                }
             }
             let vm = new Vue({
                 el:'#app',
@@ -56,7 +63,9 @@
 
                 },
                 methods:{
-
+                    fn(){
+                        alert("测试")
+                    }
                 },
                 data:{
 

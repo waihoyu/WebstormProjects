@@ -6,9 +6,24 @@
     </head>
     <body>
         <div id="app">
+            <loading ref="load"></loading>
         </div>
         <script src="./node_modules/vue/dist/vue.js"></script>
         <script>
+            let loading = {
+                data(){
+                  return {flag:true}
+                },
+                created(){
+
+                },
+                template:'<div v-show="flag">疯狂加载中.....</div>',
+                methods: {
+                    hide(){
+
+                    }
+                }
+            }
             let vm = new Vue({
                 el:'#app',
                 beforeCreate(){
@@ -21,7 +36,8 @@
 
                 },
                 mounted(){
-
+                    console.log(this.$refs.load)
+                    this.$refs.load.$el.style.background ='red'
                 },
                 beforeUpdate(){
 
@@ -50,6 +66,9 @@
                 },
                 data:{
 
+                },
+                components:{
+                    loading
                 }
             })
         </script>
