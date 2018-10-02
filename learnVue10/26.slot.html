@@ -6,16 +6,18 @@
     </head>
     <body>
         <div id="app">
-            <modal></modal>
+            <modal><h1>1</h1></modal>
+            <modal><h1>2</h1></modal>
         </div>
     <template id="modal">
-        <div> </div>
+        <div>
+            <slot></slot>4
+        </div>
     </template>
         <script src="./node_modules/vue/dist/vue.js"></script>
         <script>
             let modal = {
                 template:'#modal'
-
             }
             let vm = new Vue({
                 el:'#app',
@@ -58,6 +60,9 @@
                 },
                 data:{
 
+                },
+                components:{
+                    modal
                 }
             })
         </script>
