@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <child ref="child"></child>
+</div>
+<template id="child">
+    <div>
+        <li v-for="a in arr">{{a}}</li>
+    </div>
+</template>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+
+    let vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+        computed: {},
+        components: {
+            child:{
+                template:'#child',
+                data(){
+                    return {arr:[1,2,3]}
+                },
+                mounted(){
+                    this.arr = [4,5,6]  //此处是异步渲染dom
+                    alert('child')
+                }
+            }
+        },
+        watch: {},
+        filters: {},
+        // template: '<div></div>',
+        beforeCreate() {},
+        created() {},
+        beforeMount() {},
+        mounted() {
+            // this.$nextTick(()=>{
+            //     console.log(this.$refs.child.$el.innerHTML);
+            // })
+            console.log(this.$refs.child.$el.innerHTML);
+            alert('parent')},
+        beforeUpdate() {},
+        updated() {},
+        beforeDestroy() {},
+        destroyed() {}
+    })
+</script>
+</body>
+</html>

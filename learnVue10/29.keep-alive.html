@@ -6,18 +6,37 @@
 </head>
 <body>
 <div id="app">
+    <input type="radio" v-model="radio" value="home">Home
+    <input type="radio" v-model="radio" value="list">List
+    <keep-alive>
+        <component :is="radio"></component>
+    </keep-alive>
 </div>
 <script src="./node_modules/vue/dist/vue.js"></script>
 <script>
+    let home = {
+        template: '<div>Home</div>',
+        mounted(){alert('home挂载')},
+        beforeDestroy(){alert('home销毁')}
+    }
+    let list = {
+        template: '<div>List</div>',
+        mounted(){alert('list挂载')},
+        beforeDestroy(){alert('list销毁')}
+    }
     let vm = new Vue({
         el: '#app',
-        data: {},
+        data: {
+            radio:'home'
+        },
         methods: {},
         computed: {},
-        components: {},
+        components: {
+            home,list
+        },
         watch: {},
         filters: {},
-        template: '<div></div>',
+        // template: '<div></div>',
         beforeCreate() {},
         created() {},
         beforeMount() {},
