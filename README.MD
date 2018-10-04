@@ -435,7 +435,6 @@ slot 中可以放置 一些默认的内容，如果传递了内容则替换掉
 ```
 
 父掉子
-
 ```bash
 父组件调用子组件的方法
 
@@ -446,3 +445,34 @@ slot 中可以放置 一些默认的内容，如果传递了内容则替换掉
 ref 如果放在组件上，获取的是组件的实例，并不是组件的dom元素
 
 ```
+
+父掉子
+```bash
+父组件调用子组件的方法
+
+        <div id="app">
+            <loading ref="load"></loading>
+        </div>
+
+ref 如果放在组件上，获取的是组件的实例，并不是组件的dom元素
+
+```
+
+keep-live
+```bash
+
+ 一般作缓存：为的是后面的路由做准备。如果缓存了就不会再走created mounted 这些钩子函数。
+ 
+ 如果子组件和父组件同时拥有 mounted，先走哪个呢？  要先走孩子
+ 需要等待子组件挂载完成后，再挂载子组件。先走child。
+ 
+    <keep-alive>
+        <component :is="radio"></component>
+    </keep-alive>
+    
+    // this.$nextTick(()=>{
+    //     console.log(this.$refs.child.$el.innerHTML);
+    // })    
+
+```
+
