@@ -7,8 +7,10 @@
 </head>
 <body>
 <div id="app">
-    <panel type="primary" @sayTitle="parent">
-        <div slot="title">这是不错的应用</div>
+    <panel :type="article.type" @sayTitle="parent" v-for="(article,index) in articles" :key="index">
+        <div slot="title"><span v-html="articles.title"></span></div>
+        <div slot="content">{{article.content}}</div>
+        <div v-if="article.author">{{article.author}}</div>
     </panel>
 </div>
 
@@ -16,7 +18,7 @@
     <div class="panel" :class="[color]">
 
         <div class="panel-heading" ref="head"><slot name="title"></slot></div>
-        <div class="panel-body">2</div>
+        <div class="panel-body"><slot name="content"></slot></div>
         <div class="panel-footer">
             <slot>匿名</slot>
             <button @click="say">点我说标题</button>
@@ -50,7 +52,28 @@
     }
     let vm = new Vue({
         el: '#app',
-        data: {},
+        data: {
+        articles:[
+            {
+                type: 'warning',
+                title: '<h2>vue</h2>',
+                content: '这是vue的文章',
+                author: 'WaiHoYu'
+            },
+            {
+                type: 'primary',
+                title: '<h2>react</h2>',
+                content: '这是react的文章',
+                author: 'WaiHoYu'
+            },
+            {
+                type: 'danger',
+                title: '<h2>angular</h2>',
+                content: '这是angular的文章',
+                author: 'WaiHoYu'
+            }
+        ]
+        },
         methods: {
             parent(tit){
                 alert(tit)
