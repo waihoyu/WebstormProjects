@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <router-view></router-view>
+</div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="./node_modules/vue-router/dist/vue-router.js"></script>
+<script>
+    let home = {template:'<div>首页</div>'}
+
+    let list = {template:'<div>列首页</div>'}
+
+    let routes = [ //路由的映射表，  配置路径和组件的关系
+        {
+            path:'/home',component:home  //配置的关系就是页面级组件
+        },
+        {
+            path:'/list',component:list  //路径必须加/
+        }
+    ]
+
+    let router = new VueRouter({ //引入 vue-router  自带vueRouter类
+        routes
+    })
+
+    let vm = new Vue({
+        el: '#app',
+        router:router,
+        data: {},
+        methods: {},
+        computed: {},
+        components: {},
+        watch: {},
+        filters: {},
+        // template: '<div></div>',
+        beforeCreate() {},
+        created() {},
+        beforeMount() {},
+        mounted() {},
+        beforeUpdate() {},
+        updated() {},
+        beforeDestroy() {},
+        destroyed() {}
+    })
+</script>
+</body>
+</html>
