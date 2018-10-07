@@ -560,3 +560,25 @@ ref 如果放在组件上，获取的是组件的实例，并不是组件的dom�
 
 
 ```
+
+
+## 多级路由的嵌套
+```bash 
+<div id="app">
+    <router-link to="/home">首页</router-link>
+    <router-link to="/detail">详情</router-link>
+
+
+    <router-view></router-view>
+</div>
+
+<template id="detail">
+    <div>
+        <router-link to="/detail/profile">简历</router-link>
+        <router-link to="/detail/about">关于</router-link>
+        <router-view></router-view>
+    </div>
+</template>
+
+
+```

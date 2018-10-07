@@ -27,11 +27,15 @@
         methods:{
             toHome(){
                 console.log('log');
-                this.$router.go(-1)  //返回某一级别
+                this.$router.go(-1)  //返回某一级别  返回某一级 go顶替了back
             }
         }
     }
     let routes = [
+        {
+            path: '/',
+            component: list
+        },
         {
             path: '/home',
             component: home
@@ -39,6 +43,10 @@
         {
             path:'/list',
             component:list
+        },
+        {
+            path:'*',
+            redirect: '/home'
         }
     ]
     let router = new VueRouter({
