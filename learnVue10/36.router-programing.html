@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <router-link :to="{path:'/home'}" >首页</router-link>
+    <router-link :to="{path:'/list'}" >列首页</router-link>
+    <router-view></router-view>
+</div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="./node_modules/vue-router/dist/vue-router.js"></script>
+<script>
+    let home ={
+        template: '<div>首页<button @click="toList">跳转到列表</button></div>',
+        methods: {
+            toList(){
+                this.$router.push('/list')  //强制跳转路劲
+                // this.$router.replace  路由的替换
+            }
+        }
+    }
+    let list ={
+        template: '<div>列表<button @click="toHome">返回到上一级</button></div>',
+        methods:{
+            toHome(){
+                console.log('log');
+                this.$router.go(-1)  //返回某一级别
+            }
+        }
+    }
+    let routes = [
+        {
+            path: '/home',
+            component: home
+        },
+        {
+            path:'/list',
+            component:list
+        }
+    ]
+    let router = new VueRouter({
+        routes
+    })
+    let vm = new Vue({
+        el: '#app',
+        router:router,  //每个组件都会拥有￥router的属性  还有一个名字叫$router
+        data: {},
+        methods: {},
+        computed: {},
+        components: {},
+        watch: {},
+        filters: {},
+        // template: '<div></div>',
+        beforeCreate() {},
+        created() {},
+        beforeMount() {},
+        mounted() {},
+        beforeUpdate() {},
+        updated() {},
+        beforeDestroy() {},
+        destroyed() {}
+    })
+</script>
+</body>
+</html>

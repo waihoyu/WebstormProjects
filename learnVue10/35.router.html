@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .router-link-active{
+            color: red;
+        }
+        .active{
+            color: blue;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
+    <router-link to="/home" tag="button">首页</router-link>
+    <router-link to="/list" tag="button">列首页</router-link>
     <router-view></router-view>
 </div>
 <script src="./node_modules/vue/dist/vue.js"></script>
@@ -25,7 +35,9 @@
     ]
 
     let router = new VueRouter({ //引入 vue-router  自带vueRouter类
-        routes
+        // mode:'history',  //h5模式
+        routes,
+        linkActiveClass:'active'
     })
 
     let vm = new Vue({

@@ -501,8 +501,62 @@ ref 如果放在组件上，获取的是组件的实例，并不是组件的dom�
    h5的history.pushState()
    
    开发的时候要使用hash  不会导致404的问题  hash方式不支持seo
-   
-   
+     
    上线的时候要用h5的   上线采用H5的跳转
+    let home = {template:'<div>首页</div>'}
+
+    let list = {template:'<div>列首页</div>'}
+
+    let routes = [ //路由的映射表，  配置路径和组件的关系
+        {
+            path:'/home',component:home  //配置的关系就是页面级组件
+        },
+        {
+            path:'/list',component:list  //路径必须加/
+        }
+    ]
+
+    let router = new VueRouter({ //引入 vue-router  自带vueRouter类
+        mode:'history',  //h5模式
+        routes,
+        linkActiveClass:'active'
+    })
+```
+## 编程式导航  
+```bash
+编程式导航，在js跳转页面
+
+    let home ={
+        template: '<div>首页<button @click="toList">跳转到列表</button></div>',
+        methods: {
+            toList(){
+                this.$router.push('/list')  //强制跳转路劲
+                // this.$router.replace  路由的替换
+            }
+        }
+    }
+    let list ={
+        template: '<div>列表<button @click="toHome">返回到上一级</button></div>',
+        methods:{
+            toHome(){
+                console.log('log');
+                this.$router.go(-1)  //返回某一级别
+            }
+        }
+    }
+    let routes = [
+        {
+            path: '/home',
+            component: home
+        },
+        {
+            path:'/list',
+            component:list
+        }
+    ]
+    let router = new VueRouter({
+        routes
+    })
+
 
 ```
