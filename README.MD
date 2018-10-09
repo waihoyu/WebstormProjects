@@ -585,7 +585,38 @@ ref 如果放在组件上，获取的是组件的实例，并不是组件的dom�
 ## 路由的参数params
 ```bash 
 
+<div id="app">
+    <router-link :to="{name:'pro',path:'/article',params:{c:1}}">商品1</router-link>
+    <router-link to="/article/2">商品2</router-link>
+    <router-link to="/article/3">商品3</router-link>
+    <router-view></router-view>
+</div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="./node_modules/vue-router/dist/vue-router.js"></script>
+<script>
+    let article = {
+        template: '<div>第{{this.$route.params.c}}篇文章</div>',
+        data(){
+            return{
 
+            }
+        },
+        watch:{
+            $route(){
+                alert('页面变化')
+            }
+        }
+    }
+    let routes = [
+        {
+            path:'/article/:c',
+            component:article,
+            name:'pro'
+        }
+    ]
+    let router = new VueRouter({
+        routes
+    })
 
 
 
