@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <router-link :to="{name:'pro',path:'/article',params:{c:1}}">商品1</router-link>
+    <router-link to="/article/2">商品2</router-link>
+    <router-link to="/article/3">商品3</router-link>
+    <router-view></router-view>
+</div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="./node_modules/vue-router/dist/vue-router.js"></script>
+<script>
+    let article = {
+        template: '<div>第{{this.$route.params.c}}篇文章</div>',
+        data(){
+            return{
+
+            }
+        },
+        watch:{
+            $route(){
+                alert('页面变化')
+            }
+        }
+    }
+    let routes = [
+        {
+            path:'/article/:c',
+            component:article,
+            name:'pro'
+        }
+    ]
+    let router = new VueRouter({
+        routes
+    })
+    let vm = new Vue({
+        el: '#app',
+        router,
+        data: {},
+        methods: {},
+        computed: {},
+        components: {},
+        watch: {},
+        filters: {},
+        // template: '<div></div>',
+        beforeCreate() {},
+        created() {},
+        beforeMount() {},
+        mounted() {},
+        beforeUpdate() {},
+        updated() {},
+        beforeDestroy() {},
+        destroyed() {}
+    })
+</script>
+</body>
+</html>
