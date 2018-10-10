@@ -645,6 +645,7 @@ export default  a
 import  xxx from  './b.js'
 
 ```
+
 ## Webpack的安装与使用
 ```bash
 
@@ -655,5 +656,21 @@ npm install webpack -g
 安装webpack或者less 最好 不要安装全局的，否则可能导致webpack的版本差异
 
 在package.json 中配置一个脚本，这个脚本用的命令是webpack，会去当前的node_modules 下找bin对应的webpack名字让其执行，执行的就是bin/webpack.js,webpack.js需要当前目录下有个名字叫webpack.config.js的文件，我们通过npm run build 执行的目录是当前文件的目录，所以会去当前目录下查找。
+
+```
+
+## babel转义es6 -> es5
+```bash
+- 安装babel
+npm install babel-core  babel-loader --save--dev
+
+
+```
+
+## babel-preset-es2015 的安装
+```bash
+让翻译官拥有解析es6语法的功能
+
+npm install babel-preset-es2015 --save-dev
 
 ```

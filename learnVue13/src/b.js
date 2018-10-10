@@ -1,3 +1,6 @@
-let str = '我在学习js'
+// let str = '我在学习js'
+//
+// module.exports = str
+let str = '我非常帅'
 
-module.exports = str
+export  default  str
