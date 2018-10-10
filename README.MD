@@ -654,6 +654,6 @@ npm install webpack -g
 
 安装webpack或者less 最好 不要安装全局的，否则可能导致webpack的版本差异
 
-
+在package.json 中配置一个脚本，这个脚本用的命令是webpack，会去当前的node_modules 下找bin对应的webpack名字让其执行，执行的就是bin/webpack.js,webpack.js需要当前目录下有个名字叫webpack.config.js的文件，我们通过npm run build 执行的目录是当前文件的目录，所以会去当前目录下查找。
 
 ```
