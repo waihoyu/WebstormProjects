@@ -582,6 +582,7 @@ ref 如果放在组件上，获取的是组件的实例，并不是组件的dom�
 
 
 ```
+
 ## 路由的参数params
 ```bash 
 
@@ -617,6 +618,41 @@ ref 如果放在组件上，获取的是组件的实例，并不是组件的dom�
     let router = new VueRouter({
         routes
     })
+
+```
+
+## JavaScript模块
+
+```bash
+
+- node模块的规范commonjs
+
+- cmd seajs  amd requirejs
+
+- umd 为了做兼容处理的
+
+- esmodule es6 已经内置支持了模块化
+
+    -  如何定义模块  一个js就是一个模块
+    
+    -  如何导出模块   export 
+    
+    -  如何使用模块    import
+
+import  * as b from './a.js'
+
+export default  a
+import  xxx from  './b.js'
+
+```
+## Webpack的安装与使用
+```bash
+
+先下载webpack
+
+npm install webpack -g
+
+安装webpack或者less 最好 不要安装全局的，否则可能导致webpack的版本差异
 
 
 

@@ -88,3 +88,5 @@ typings/
 /learnVue12/package-lock.json
 /learnVue11/package-lock.json
 /learnVue10/package-lock.json
+/learnVue13/node_modules/
+/learnVue13/package-lock.json
