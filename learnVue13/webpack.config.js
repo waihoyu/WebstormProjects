@@ -2,7 +2,7 @@
 
 let path = require('path')
 let p = path.resolve('./dist')
-
+let HtmlWebpackPlugin =  require('html-webpack-plugin')
 module.exports = {
     entry:'./src/main.js',
     mode:'none',
@@ -21,6 +21,11 @@ module.exports = {
             {test:/\.(jpg|png|gif)$/,use:'url-loader?limit=8192'},
             {test:/\.(svg|eot|woff|woff2|wtf)$/,use:'url-loader'},
         ]
-    }
-
+    },
+    plugins:[
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: 'login.html'
+        })
+    ]
 }

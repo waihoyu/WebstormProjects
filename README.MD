@@ -721,3 +721,19 @@ npm install file-loader url-loader --save-dev
  转化base64只在8192字节一下转化。其他情况下输出图片   
     
 ```
+## 需要解析html插件
+```bash
+-  插件的作用是以我们自己的html为模板将打包后的结果。自动引入到html中,产出到dist目录下。
+
+npm install html-webpack-plugin --save-dev 
+
+    
+```
+## webpack-dev-server
+```bash
+ 
+这里面内置了服务，可以帮我们启动一个端口号，当代码更新时，可以自动打包。
+在内存中打包。代码有变化，就重新执行。
+npm install webpack-dev-server --save-dev
+    
+```
