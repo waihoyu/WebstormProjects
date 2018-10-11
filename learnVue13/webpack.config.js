@@ -15,9 +15,12 @@ module.exports = {
     //  -js  匹配所有的js用 babel-loader 转义  排除掉node_modules
     module:{
         rules:[
-            {test:/\.js$/,use:'babel-loader',exclude:/node_modules/}
+            {test:/\.js$/,use:'babel-loader',exclude:/node_modules/},
+            {test:/\.css$/,use:['style-loader','css-loader']},
+            {test:/\.less$/,use:['style-loader','css-loader','less-loader']},
+            {test:/\.(jpg|png|gif)$/,use:'url-loader?limit=8192'},
+            {test:/\.(svg|eot|woff|woff2|wtf)$/,use:'url-loader'},
         ]
-
     }
 
 }

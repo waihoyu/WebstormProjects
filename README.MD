@@ -674,3 +674,50 @@ npm install babel-core  babel-loader --save--dev
 npm install babel-preset-es2015 --save-dev
 
 ```
+
+## babel-preset-stage-0
+- 解析es7语法
+```bash
+
+npm install babel-preset-stage-0 --save-dev
+
+
+```
+
+
+## 解析样式
+```bash
+
+npm install css-loader style-loader --save-dev
+
+- css-loader  将css解析成模块，将解析的内容插入到style标签内（style-loader）
+
+```
+
+## less、sass、stylus(预处理语言)
+```bash
+-less-loader  less  css-loader style-loader
+
+-sass-loader
+
+-stylus-loader
+
+npm install less less-loader --save-dev
+
+```
+
+## 解析图片
+```bash
+
+file-loader url-loader(是依赖于file-loader)
+
+
+npm install file-loader url-loader --save-dev
+
+
+ 打包的入口文件，webpack会自动查找相关的依赖进行打包。
+ 模块的解析规则
+ -js  匹配所有的js用 babel-loader 转义  排除掉node_modules
+ 转化base64只在8192字节一下转化。其他情况下输出图片   
+    
+```
