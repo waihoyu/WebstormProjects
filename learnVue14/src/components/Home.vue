@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        首页
     </div>
 </template>
 
@@ -16,6 +16,5 @@
 </script>
 
 <style scoped>
-
 
 </style>
