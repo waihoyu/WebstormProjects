@@ -737,3 +737,37 @@ npm install html-webpack-plugin --save-dev
 npm install webpack-dev-server --save-dev
     
 ```
+## 工程初始化
+```bash
+
+npm install webpack webpack-dev-server babel-core babel-loader babel-preset-es2015 babel-preset-stage-0 css-loader style-loader less less-loader file-loader url-loader html-webpack-plugin --save-dev
+    
+
+```
+
+## vue
+```bash
+ 这样直接引用vue,引用的并不是vue.js  引用的是vue的runtime 
+ 
+ vue = compiler + runtime (compiler 可以编译模板) 
+
+    render:function (createElement) {
+        return createElement('h1','hello')
+    }
+    
+    render 函数的作用是将虚拟dom渲染成真实的dom
+    createElement 返回的是虚拟的dom
+    
+
+```
+
+
+## 安装vue-loader  vue-template-compiler
+```bash
+vue-loader  解析vue文件的，vue会自动调用
+
+vue-template-compiler  用来解析vue模板的
+
+npm install vue-loader vue-template-compiler  --save-dev 
+
+```
