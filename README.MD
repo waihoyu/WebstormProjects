@@ -771,3 +771,23 @@ vue-template-compiler  用来解析vue模板的
 npm install vue-loader vue-template-compiler  --save-dev 
 
 ```
+
+# 第七天的学习
+
+- 项目用到less
+
+```
+安装less
+
+npm install less less-loader axios  vuex bootstrap
+
+```
+- mock 模拟数据
+
+- api 代表的是所有的接口
+
+- base  基础组件
+
+- components 页面组件
+
+
