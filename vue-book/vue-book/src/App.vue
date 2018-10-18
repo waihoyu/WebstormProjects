@@ -26,4 +26,12 @@ export default {
   input, button{
     -webkit-appearance: none;
   }
+  .content{
+    position: fixed;
+    width: 100%;
+    top: 40px;
+    bottom: 50px;
+    overflow: auto;
+    background: yellow;
+  }
 </style>

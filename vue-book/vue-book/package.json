@@ -10,9 +10,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "vue": "^2.5.2",
+    "vue-awesome-swiper": "^2.6.7",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
