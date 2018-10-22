@@ -6,6 +6,20 @@ let url = require('url')
 
 let sliders = require('./sliders')
 
+function read(cb){
+  fs.readFile('./book.json','utf8',function (err,data) {
+    if (err || data.length == 0){
+      cb([]);
+    }else{
+      cb(JSON.parse(data));
+    }
+  });
+}
+
+read(function (books) {
+  console.log(books);
+});
+
 http.createServer((req,res)=>{
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
@@ -15,6 +29,9 @@ http.createServer((req,res)=>{
   let {pathname,query} = url.parse(req.url)
   if(pathname === '/sliders') {
     res.setHeader('Content-Type','application/json;charset=utf8')
-    res.end(JSON.stringify(sliders))
+    return res.end(JSON.stringify(sliders))
+  }
+  if(pathname === '/hot'){
+
   }
 }).listen(3000)

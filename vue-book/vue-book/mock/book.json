@@ -1,3 +1,33 @@
-{
 
-}
+
+[
+  {
+    "bookCover":"https://img14.360buyimg.com/n2/jfs/t24700/38/859671102/205515/9aa10d3d/5b7e75e7N1ea9a98e.jpg",
+    "bookName":"草原上的小木屋兔子坡",
+    "bookInfo":"儿童文学11-14岁小学生三四五六年级课外阅读书籍 校园励志读物",
+    "bookPrice":32.80,
+    "bookId":1
+  },
+  {
+    "bookCover":"https://img12.360buyimg.com/n2/jfs/t26146/59/113493464/483567/5bcff387/5b853b5eN195642a7.jpg",
+    "bookName":"新民说·阿尔比恩的种子：美国文化的源与流",
+    "bookInfo":"美国文化史重磅巨作!美国史巨擘埃德蒙·摩根、戈登·伍德、迈克尔·卡门联袂推荐!",
+    "bookPrice":148.50 ,
+    "bookId":2
+  },
+  {
+    "bookCover":"https://img14.360buyimg.com/n7/jfs/t1/5275/15/8976/291820/5bab30eeEb9c130c5/e2defda5b033628a.jpg",
+    "bookName":"有斐BASIC：男士基本款",
+    "bookInfo":"杜绍斐签名版！男士穿搭宝典，三联生活书店X杜绍斐联合出品",
+    "bookPrice":43.50,
+    "bookId":3
+  },
+  {
+    "bookCover":"https://img11.360buyimg.com/n2/jfs/t26089/236/1276117899/416720/a9128eb2/5b90cccbNd33cb6ab.jpg",
+    "bookName":"前行笔记之耕耘心田",
+    "bookInfo":"当今深具影响力的作家希阿荣博堪布全新力作。",
+    "bookPrice":41.30,
+    "bookId":4
+  }
+]
+
