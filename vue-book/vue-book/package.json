@@ -69,7 +69,7 @@
     "not ie <= 8"
   ],
   "lint-staged": {
-    "src/**/*.js1": [
+    "src/**/*.js": [
       "eslint --fix",
       "git add"
     ]
