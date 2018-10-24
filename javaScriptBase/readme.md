@@ -158,10 +158,49 @@
 
 ````
 
+当试图得到一个对象的某个属性时，如果这个对象本身没有这个属性，那么它会去它的__proto__ (即它的构造函数的prototype)中寻找。
+
+````javascript
+
+    //构造函数
+    
+    function Foo(name, age) {
+        this.name = name
+    }
+    Foo.prototype.alertName = function () {
+        alert(this.name)
+    }
+    //创建示例
+    
+    var f= new Foo('zhangsan')
+    
+    f.printName = function () {
+        console.log(this.name)
+    }
+    
+    //测试
+    
+    f.printName()
+    
+    f.alertName()
+    
+    
+    var item
+    
+    for(item in f){
+        //高级浏览器已经在 for in 中屏蔽了来自原型的属性
+        //但是这里建议大家还是加上这个判断，保证程序的健壮性
+        if(f.hasOwnProperty(item)){
+            console.log(item)
+        }
+    }
+
+
+````
 
 - 原型链
 
-
+显示原型  隐形原型
 
 - instanceof
 
@@ -241,13 +280,84 @@
 
 ### 12.如何准确判断一个变量是数组类型
 
+    var arr = []
+    
+    arr instanceof Array  //true
+    
+    typeof arr  // object, typeof 是无法判断是否是数组的
+
 
 
 ### 13.写一个原型链继承的例子
 
+````javascript
 
+    //动物
+    function Animal() {
+        this.eat = function () {
+            console.log('animal eat');
+        }
+    }
+    
+    //狗
+    
+    function Dog() {
+        this.bark = function () {
+            console.log('dog bark');
+        }
+    }
+    
+    Dog.prototype = new Animal()
+    
+    // 哈士奇
+    
+    var hashiqi = Dog()
+    
+    //接下来代码演示时，会推荐更加贴近实战的原型继承示例！
+
+````
+
+````javascript
+function Elem(id) {
+    this.elem = document.getElementById(id)
+}
+
+Elem.prototype.html = function (val) {
+    var elem = this.elem
+    if (val){
+        elem.innerHTML = val
+        return this  //链式操作
+    }
+    else
+    {
+        return elem.innerHTML
+    }
+}
+
+Elem.prototype.on = function (type, fn) {
+    var elem = this.elem
+    elem.addEventListener(type, fn)
+    return this
+}
+
+var div1 = new Elem('div1')
+
+// console.log(div1.html());
+
+div1.html('<p> hello imooc </p>')
+
+div1.on('click',function () {
+    alert('clicked')
+})
+
+```
+面试的时候要写这样的例子
 
 ### 14.描述new一个对象的过程
-
+    
+    创建一个新对象
+    this指向这个新对象
+    执行代码，即对this赋值
+    返回this
 
 ### 15.zepto(或其他框架)源码中如何使用原型链
