@@ -8,3 +8,5 @@ function Foo(name,age) {
 var f = new Foo('zhangsan',20)
 
 // var f1 = new Foo('lisi',22)  //创建多个对象
+
+

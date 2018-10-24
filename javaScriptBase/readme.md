@@ -5,7 +5,7 @@
 ---
 > 变量类型
 
- **  1、 值类型 VS 引用类型 **  
+  1、 值类型 VS 引用类型 
 
 ```javascript
 
@@ -43,7 +43,7 @@
 
     注意点：typeof 只能区分值类型的详细类型。但是typeof 针对于引用类型则是无能为力了。
 
->  变量计算  -- 强制类型转换
+3、 变量计算  -- 强制类型转换
 
    > 字符串拼接
     
@@ -73,6 +73,7 @@
     }    
    > 逻辑运算
    
+```javascript   
    console.log(10 && 0) //0
    console.log(‘’ || ‘abc’) // 'abc'
    console.log(!window.abc) //true
@@ -81,11 +82,13 @@
    
    var a = 100
    console.log(!!a)
+````   
    
-   
->  原型和原型链-构造函数
+4、  原型和原型链-构造函数
 
 - 构造函数
+
+```javascript
 
     function Foo(name,age) {
         this.name = name
@@ -93,18 +96,74 @@
         this.class = 'class-1'
         //return this // 默认有这一行
     }
-    
     var f = new Foo('zhangsan',20)
     
     // var f1 = new Foo('lisi',22)  //创建多个对象
 
-构造函数-扩展
+````
 
-原型规则和示例
+- 构造函数-扩展
 
-原型链
+```bash
 
-instanceof
+    var a = {} 其实是var a = new Object() 的语法糖
+    
+    var a = [] 其实是 var a = new Array()的语法糖
+    
+    function Foo(){ } 其实是var Foo = new Function(...)
+    
+    使用instanceof判断一个函数是否是一个变量的构造函数
+    
+```
+
+```javascript
+
+    function Foo(name,age) {
+        this.name = name
+        this.age = age
+        this.class = 'class-1'
+        //return this // 默认有这一行
+    }
+    var f = new Foo('zhangsan',20)
+    
+    // var f1 = new Foo('lisi',22)  //创建多个对象
+
+````
+
+- 原型规则和示例
+
+```javascript
+
+    var obj = {}
+    
+    obj.a = 100
+    
+    var arr = []
+    
+    arr.a = 100;
+    
+    function fn() {
+    
+    }
+    
+    fn.a = 100;
+    
+    
+    console.log(obj.__proto__)
+    console.log(arr.__proto__)
+    console.log(fn.__proto__)
+    console.log(fn.prototype)
+    
+    console.log(obj.__proto__ === Object.prototype)
+
+````
+
+
+- 原型链
+
+
+
+- instanceof
 
 
 ## 面试题
@@ -135,8 +194,6 @@ instanceof
     if (obj.a == null ){
         //这里相当于obj.a === null || obj.a === undefined,简写形式
         //这是jquery 源码中推荐的写法
-    
-        
     }
 
 ### 3. JS中有哪些内置函数
