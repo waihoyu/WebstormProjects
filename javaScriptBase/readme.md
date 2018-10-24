@@ -5,7 +5,7 @@
 ---
 > 变量类型
 
-1、 值类型 VS 引用类型
+ **  1、 值类型 VS 引用类型 **  
 
 ```javascript
 
@@ -82,6 +82,31 @@
    var a = 100
    console.log(!!a)
    
+   
+>  原型和原型链-构造函数
+
+- 构造函数
+
+    function Foo(name,age) {
+        this.name = name
+        this.age = age
+        this.class = 'class-1'
+        //return this // 默认有这一行
+    }
+    
+    var f = new Foo('zhangsan',20)
+    
+    // var f1 = new Foo('lisi',22)  //创建多个对象
+
+构造函数-扩展
+
+原型规则和示例
+
+原型链
+
+instanceof
+
+
 ## 面试题
 
 ---
@@ -156,3 +181,16 @@
 
 ### 11.实现数组的随机排序？
 
+
+### 12.如何准确判断一个变量是数组类型
+
+
+
+### 13.写一个原型链继承的例子
+
+
+
+### 14.描述new一个对象的过程
+
+
+### 15.zepto(或其他框架)源码中如何使用原型链
