@@ -12,4 +12,4 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-/package-lock.json
+/WebstormProjects/vue-book/vue-book/package-lock.json1
