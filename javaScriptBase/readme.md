@@ -205,6 +205,11 @@
 - instanceof
 
 
+- 作用域和闭包-执行代码演示
+
+显示原型  隐形原型
+
+
 ## 面试题
 
 ---
@@ -269,7 +274,9 @@
 ### 8. window.onload 和 DOMContentLoaded的区别？
 
 
+
 ### 9. 用JS创建10个<a>标签，点击的时候弹出来对应序号？
+
 
 
 ### 10. 简述如何实现一个模块加载器，实现类似require.js的基本功能？
@@ -318,39 +325,41 @@
 ````
 
 ````javascript
-function Elem(id) {
-    this.elem = document.getElementById(id)
-}
 
-Elem.prototype.html = function (val) {
-    var elem = this.elem
-    if (val){
-        elem.innerHTML = val
-        return this  //链式操作
+    function Elem(id) {
+        this.elem = document.getElementById(id)
     }
-    else
-    {
-        return elem.innerHTML
+    
+    Elem.prototype.html = function (val) {
+        var elem = this.elem
+        if (val){
+            elem.innerHTML = val
+            return this  //链式操作
+        }
+        else
+        {
+            return elem.innerHTML
+        }
     }
-}
+    
+    Elem.prototype.on = function (type, fn) {
+        var elem = this.elem
+        elem.addEventListener(type, fn)
+        return this
+    }
+    
+    var div1 = new Elem('div1')
+    
+    // console.log(div1.html());
+    
+    div1.html('<p> hello imooc </p>')
+    
+    div1.on('click',function () {
+        alert('clicked')
+    })
 
-Elem.prototype.on = function (type, fn) {
-    var elem = this.elem
-    elem.addEventListener(type, fn)
-    return this
-}
+````
 
-var div1 = new Elem('div1')
-
-// console.log(div1.html());
-
-div1.html('<p> hello imooc </p>')
-
-div1.on('click',function () {
-    alert('clicked')
-})
-
-```
 面试的时候要写这样的例子
 
 ### 14.描述new一个对象的过程
@@ -358,6 +367,185 @@ div1.on('click',function () {
     创建一个新对象
     this指向这个新对象
     执行代码，即对this赋值
-    返回this
+    返回 this
 
 ### 15.zepto(或其他框架)源码中如何使用原型链
+
+### 16.说一下对变量提升的理解 
+
+    变量定义
+    函数声明（注意和函数表达式的区别）
+
+
+执行上下文
+
+    范围：一段<script>或者一个函数
+    全局：变量定义、函数声明                  一段<script>
+    函数：变量定义、函数声明、this、arguments  函数
+this
+    
+    this
+    //this 要在执行时才能确认值，定义时无法确认
+    
+    var a ={
+        name:'A',
+        fn:function () {
+            console.log(this.name);
+        }
+    }
+    
+    a.fn() //this === a
+    
+    a.fn.call({name:'B'})  //this === {name:'B'}
+    
+    var fn1 = a.fn
+    
+    fn1()  //this === window
+作用域
+
+
+作用域链
+
+
+闭包
+
+    function F1() {
+        var a = 10
+        return function () {
+            console.log(a);
+        }
+    }
+    
+    var f1 = F1()
+    
+    var a = 200
+    f1()
+
+闭包  1.函数作为返回值 2.函数作为参数来传递
+
+### 17.说明this几种不同的使用场景
+ 
+    作为构造函数执行
+    
+    作为对象属性执行
+    
+    作为普通函数执行
+    
+    call apply bind
+
+### 18.创建10个<a>标签，点击的时候弹出来对应的序号
+
+
+
+### 19.如何理解作用域
+
+自由变量
+
+作用域链，即自由变量的查找
+
+闭包的两个场景
+    
+    
+    function isFirstLoad() {
+    
+        var  _lsit = []
+    
+        return function (id) {
+            if (_list.indexOf(id) >=0 ){
+                return false
+            }
+            else {
+                _list.push(id)
+                return true
+            }
+    
+            _lsit.push(id)
+        }
+    }
+    
+    let firstLoad = isFirstLoad()
+    
+    firstLoad(10)
+    
+    firstLoad(10)
+    
+    firstLoad(20)
+    
+    firstLoad(20)
+
+
+### 20.实际开发中闭包的应用
+
+
+##  第四章 JS基础知识（下） 
+
+---
+
+
+### 21.同步和异步的区别是什么？分别举一个同步和异步的例子
+
+什么是异步？（对比同步）
+
+
+
+前端使用异步的场景
+
+   定时任务：setTimeout,setInterval
+   
+```javascript   
+
+    console.log(100)
+    setTimeout(function () {
+        console.log(200)
+    },1000)
+    console.log(300)
+
+```
+
+   网络请求： ajax 请求，动态<img>加载
+   
+```javascript   
+
+    console.log('start')
+    $.get('/test-test.json',function(data){console.log(data)})
+    console.log('end')
+
+```
+
+```javascript   
+
+    console.log('start')
+    var img = document.createElement('img')
+    img.onload = function (){
+        console.log('loaded')
+    }
+    img.src = ''
+    console.log('end')
+
+```    
+   
+   事件绑定
+   
+```javascript   
+
+    console.log('start')
+    var btn1 = document.getElementById('btn1')
+    btn1.addEventListener('click',function(){
+        console.log('clicked')    
+    })
+    console.log('end')
+
+```
+
+异步和单线程
+
+
+
+### 22.一个关于setTimeout的笔试题
+
+
+### 23.前端使用异步的场景有哪些
+
+
+
+
